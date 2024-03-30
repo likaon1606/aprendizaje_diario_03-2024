@@ -9,8 +9,14 @@ const ProductCard = ({ product }) => {
       ></div>
       <div className="right">
         <h5>{product.name}</h5>
-        <p>Categoría: {product.category}</p>
-        <p>Precio: ${product.price}</p>
+        <p>{product.description}</p>
+        <p>
+          <span className="span">Categoría: </span>
+          {product.category}
+        </p>
+        <p>
+          <span className="span">Precio: </span>${product.price}
+        </p>
       </div>
     </div>
   );

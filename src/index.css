@@ -1,5 +1,72 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.App {
+  text-align: center;
+}
+
+.product-list {
+  text-align: center;
+}
+
+.product-list h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.product-list button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  background: orangered;
+  color: whitesmoke;
+  margin: 10px;
+}
+
+.product-list button:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.product {
+  width: 500px;
+  display: flex;
+  background-color: lightgray;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.product .left {
+  width: 30%;
+  background-size: cover;
+  background-position: center center;
+  padding: 30px;
+  border-radius: 10px 0 0 10px;
+}
+
+.product .right {
+  width: 70%;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.right h5 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 14px;
+}
+
+.span {
+  font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 16px;
+}
+
+.product img {
+  width: 100%;
 }

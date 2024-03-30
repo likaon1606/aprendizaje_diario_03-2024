@@ -1,12 +1,18 @@
 import { useQuery } from "react-query";
 import ProductCard from "./ProductCard";
+import { useState } from "react";
+
 const ProductsList = () => {
-  const getProducts = async () => {
-    const response = await fetch("https://peticiones.online/api/products");
+  const [page, setPage] = useState(1);
+
+  const getProducts = async ({ queryKey }) => {
+    const response = await fetch(
+      `https://peticiones.online/api/products?page=${queryKey[1]}`
+    );
     return response.json();
   };
 
-  const { data, status } = useQuery("products", getProducts);
+  const { data, status } = useQuery(["products", page], getProducts);
 
   if (status === "loading") {
     return <p>Cargando...</p>;
@@ -17,11 +23,15 @@ const ProductsList = () => {
   }
 
   return (
-    <div>
+    <div className="product-list">
       <h2>Lista de Productos</h2>
+      <div>
+        <button onClick={() => setPage(page - 1)}>Anterior</button>
+        <button onClick={() => setPage(page + 1)}>Siguiente</button>
+      </div>
       <div className="products">
         {data.results.map((prod) => (
-          <ProductCard product={prod} key={prod.id} />
+          <ProductCard key={prod._id} product={prod} />
         ))}
       </div>
     </div>
